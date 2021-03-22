@@ -15,10 +15,9 @@
     </span>
   {{ end }}
 
-  {{ $hideAuthor := (or (in .Site.Params.hideAuthorType .Type) (.Params.hideAuthor)) }}
-  {{ if (and (and .Site.Author.name .Site.Params.showAuthor) (not $hideAuthor)) }}
+  {{ if not .Site.Params.hideAuthor }}
     <span class="author">
-    {{ .Site.Author.name | safeHTML }}
+    {{ (default .Site.Author.name .Params.Author) | safeHTML }}
     </span>
   {{ end }}
 

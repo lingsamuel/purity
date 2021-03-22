@@ -158,11 +158,12 @@ nav>.nav {
 .post-list .post-item {
     display: flex;
     text-align: left;
+    justify-content: space-between;
 }
 
 .post-list .post-item .post-meta {
-    /* justify-content: center; */
     align-items: center;
+    justify-content: flex-end;
     display: flex;
     min-width: 100px;
     font-size: 14px;
