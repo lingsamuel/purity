@@ -12,7 +12,7 @@ paginate: 100000
 
 ## Sample
 
-[Purity Sample Site](https://github.com/lingsamuel/purity-sample)
+[Purity Sample Site Repo](https://github.com/lingsamuel/purity/tree/site), [Deployed GitHub Pages](https://lingsamuel.github.io/purity)
 
 ![](./readme/index.png)
 
