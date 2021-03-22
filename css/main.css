@@ -134,8 +134,8 @@ nav>.nav {
 
 .header h1 {
     letter-spacing: 0.25rem;
-    /* font-size: 1.375rem; */
-    font-size: 2rem;
+    /* font-size: 1.375em; */
+    font-size: 2em;
     line-height: 2rem;
     font-style: normal;
     font-weight: 600;
@@ -143,7 +143,7 @@ nav>.nav {
 
 .header h2 {
     text-align: center;
-    font-size: 1.375rem;
+    font-size: 1.375em;
 }
 
 .flex-container {
@@ -198,10 +198,35 @@ ul.post-list  {
     justify-content: flex-end;
     display: flex;
     min-width: 100px;
-    font-size: 14px;
+    font-size: 0.75em;
     color: #666;
 }
 
+.post-pager {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 0.9em;
+}
+
+.post-pager ul {
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.post-pager .previous {
+    text-align: left;
+    margin: auto;
+    margin-left: 0;
+}
+
+.post-pager .next {
+    text-align: right;
+    margin: auto;
+    margin-right: 0;
+}
 
 /* 
     TOC
@@ -275,7 +300,7 @@ ul.post-list  {
     padding-top: 10px;
     padding-bottom: 10px;
     color: #666;
-    font-size: 11px;
+    font-size: 0.6em;
     max-width: 700px;
     width: 100%;
     margin: 0 auto 1rem auto;
@@ -382,19 +407,20 @@ ul.post-list  {
 
 code {
     border: 1px dotted #000;
-    font-size: 0.9rem;
+    font-size: 0.9em;
     padding-left: 2px;
     padding-right: 2px;
 }
 
 pre {
     border: 1px solid #000;
-    padding: 0.5rem;
+    padding: 0.5em;
+    overflow: auto;
 }
 
 pre code {
     border: none;
-    font-size: 0.75rem;
+    font-size: 0.75em;
     padding: 0;
 }
 
@@ -415,7 +441,7 @@ blockquote:before {
     position: absolute;
     color: #888;
     content: '\201C';
-    font-size: 2rem;
+    font-size: 2em;
     left: -.3rem;
     top: .25rem
 }
