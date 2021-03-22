@@ -1,4 +1,4 @@
 @font-face {
   font-family: "Source Han Serif CN";
-  src: local('Source Han Sans SC'), local('Source Han Serif SC'), local('Source Han Sans CN'), local('Source Han Serif CN'), url(/fonts/SourceHanSerifCN-Regular.otf);
+  src: local('Source Han Sans SC'), local('Source Han Serif SC'), local('Source Han Sans CN'), local('Source Han Serif CN'), url(./fonts/SourceHanSerifCN-Regular.otf);
 }
