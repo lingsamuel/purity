@@ -12,6 +12,8 @@ paginate: 100000
 
 ## Sample
 
+[Purity Sample Site](https://github.com/lingsamuel/purity-sample)
+
 ![](./readme/index.png)
 
 ![](./readme/content.png)
