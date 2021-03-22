@@ -5,7 +5,7 @@ on:
     types: started
   push:
     branches:
-      - master
+      - site
 
 jobs:
   deploy:
