@@ -11,6 +11,20 @@
         </div>
       </article>
     </div>
+    <div class="post-pager">
+      <ul class="pager">
+        {{ if .PrevInSection }}
+          <li class="previous">
+            <a href="{{ .PrevInSection.Permalink }}">&larr; {{ .PrevInSection.Title }}</a>
+          </li>
+        {{ end }}
+        {{ if .NextInSection }}
+          <li class="next">
+            <a href="{{ .NextInSection.Permalink }}">{{ .NextInSection.Title }} &rarr;</a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
   </div>
 </div>
 {{ if $hasTOC }}
