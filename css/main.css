@@ -199,8 +199,8 @@ nav>.nav {
 
     #toc aside {
         min-width: 20rem;
-        height: calc(100vh - 17rem);
-        overflow: scroll;
+        max-height: calc(100vh - 17rem);
+        overflow: auto;
         overflow-x: hidden;
     }
 
