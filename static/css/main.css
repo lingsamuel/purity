@@ -203,8 +203,9 @@ ul.post-list  {
 }
 
 .post-pager {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    border-top: 1px solid #000;
+    /* margin-left: 1rem;
+    margin-right: 1rem; */
     font-size: 0.9em;
 }
 
