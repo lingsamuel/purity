@@ -6,9 +6,13 @@
 
 {{ $type := .Type }}
   <section class="posts">
-      {{ range .Site.Menus.main }}
-        {{ if eq .URL $type }}
-        <h2>{{ .Name }}</h2>
+      {{ if eq $type "categories" }}
+      {{ else if eq $type "tags" }}
+      {{ else }}
+        {{ range .Site.Menus.main }}
+          {{ if eq .URL $type }}
+          <h2>{{ .Name }}</h2>
+          {{ end }}
         {{ end }}
       {{ end }}
 

@@ -37,7 +37,7 @@ body {
     background-color: #fff;
     font-family: 'Source Serif', 'Source Han Serif SC', 'Source Han Serif CN', serif;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.5rem;
     text-rendering: geometricPrecision;
     min-height: 100%;
     display: flex;
@@ -61,12 +61,8 @@ nav>.nav {
     padding-left: 15px;
     padding-right: 15px;
     justify-content: space-between;
-}
-
-@media(min-width:1200px) {
-    .nav {
-        display: flex;
-    }
+    display: flex;
+    flex-flow: row wrap;
 }
 
 .nav a {
@@ -93,6 +89,9 @@ nav>.nav {
 .nav .navbar-menu {
     display: flex;
     justify-content: flex-end;
+    
+    margin: auto;
+    margin-right: 0;
 }
 
 .nav .navbar-menu ul {
@@ -176,10 +175,15 @@ nav>.nav {
 
 /* 
     Container - List
+    TERMS (categoreis/tags) styles
 */
 
-.post-list ul {
-    line-height: 1.5;
+.post-list {
+    list-style: none;
+}
+
+ul.post-list  {
+    line-height: 1.5rem;
     padding-left: 2rem;
 }
 

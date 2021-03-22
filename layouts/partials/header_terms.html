@@ -1,18 +1,6 @@
-{{ if .IsHome }} 
-  {{ if .Site.Params.homeTitle }}
-    {{ $.Scratch.Set "title" .Site.Params.homeTitle }}
-  {{ else }}
-    {{ $.Scratch.Set "title" .Site.Title }}
-  {{ end }} 
-
-  {{ if .Site.Params.subtitle }}
-    {{ $.Scratch.Set "subtitle" .Site.Params.subtitle }}
-  {{ end }}
-{{ else }} 
-  {{ $.Scratch.Set "title" .Title }} 
-  {{ if .Params.subtitle }}
-    {{ $.Scratch.Set "subtitle" .Params.subtitle }}
-  {{ end }}
+{{ $.Scratch.Set "title" .Title }} 
+{{ if .Params.subtitle }}
+  {{ $.Scratch.Set "subtitle" .Params.subtitle }}
 {{ end }}
 
 {{ $title := $.Scratch.Get "title" }}
@@ -24,12 +12,14 @@
             {{ if eq .Type "categories" }}
               {{ if (isset .Site.Params.alias $title) }}
                 {{ $title = index .Site.Params.alias $title }}
-              {{end}}
-            {{ else if eq .Type "list" }}
-              <h1>{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h1>
-            {{ else }}
-              <h1>{{ with $title }}{{.}}{{ else }}<br/>{{ end }}</h1>
+              {{ end }}
+            {{ else if eq .Type "tags" }}
+              {{ if (isset .Site.Params.tagAlias $title) }}
+                {{ $title = index .Site.Params.tagAlias $title }}
+              {{ end }}
             {{ end }}
+
+            <h1>{{ with $title }}{{.}}{{ else }}<br/>{{ end }}</h1>
             
             {{ if $subtitle }}
               <hr class="small">
