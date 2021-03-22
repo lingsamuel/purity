@@ -1,11 +1,10 @@
-name: github pages
+name: purity update
 
 on:
   watch:
     types: started
   push:
     branches:
-      - site
       - master
 
 jobs:
@@ -17,6 +16,7 @@ jobs:
 
       - uses: actions/checkout@v2
         with:
+          ref: 'site'
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
