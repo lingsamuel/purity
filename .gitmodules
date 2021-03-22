@@ -1,0 +1,3 @@
+[submodule "themes/purity"]
+	path = themes/purity
+	url = git@github.com:lingsamuel/purity.git

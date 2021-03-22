@@ -1,0 +1,36 @@
+baseurl: "https://lingsamuel.github.io/purity"
+languageCode: "en-us"
+theme: "purity"
+
+title: "Grey Library"
+
+contentdir: "content"
+layoutdir: "layouts"
+publishdir: "public"
+
+paginate: 10000
+
+metaDataFormat: "yaml"
+
+markup:
+  highlight:
+    codeFences: false
+
+Author:
+  name: "Ling Samuel"
+
+Params:
+  subtitle: "Soft as feathers, Shining like stars"
+  favicon: "img/favicon.ico"
+
+menu:
+  main:
+  - name: "the Witcher I"
+    url: "witcher1"
+    weight: 1
+
+  - name: "the Witcher II"
+    weight: 2
+
+  - name: "the Witcher III"
+    weight: 3
