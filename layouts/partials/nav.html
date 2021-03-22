@@ -2,7 +2,7 @@
     <div class="nav">
         <div class="navbar-header">
           {{- with .Site.Params.favicon }}
-          <img src="{{ . | absURL }}" style="margin-right: 5px; height: 1em;"/>
+          <img src="{{ . | absURL }}" class="favicon"/>
           {{- end -}}
             <a href='{{ "" | absLangURL }}'>
               {{ .Site.Title }}
@@ -10,7 +10,7 @@
         </div>
 
         <div class="navbar-menu">
-            <ul class="nav">
+            <ul class="">
                 {{ range .Site.Menus.main.ByWeight }}
                 <li>
                     <a title="{{ .Name }}" href="{{ .URL  | relLangURL }}">{{ .Name }}</a>

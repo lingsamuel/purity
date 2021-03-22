@@ -57,12 +57,16 @@ nav>.nav {
 }
 
 .nav {
-    display: flex;
     align-items: center;
     padding-left: 15px;
     padding-right: 15px;
     justify-content: space-between;
-    list-style: none;
+}
+
+@media(min-width:1200px) {
+    .nav {
+        display: flex;
+    }
 }
 
 .nav a {
@@ -75,18 +79,41 @@ nav>.nav {
     align-items: center;
 }
 
+.nav .navbar-header a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .nav .navbar-header .favicon {
+    margin-left: 0;
     margin-right: 5px;
     height: 1rem;
 }
 
-.nav ul {
+.nav .navbar-menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav .navbar-menu ul {
     margin: 0;
     padding: 0;
     margin-right: -10px;
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.nav li {
+@media only screen and (max-width:800px) {
+    .nav .navbar-menu ul {
+        flex-flow: row wrap;
+        justify-content: normal;
+    }
+}
+
+.nav .navbar-menu li {
     margin: 10px;
 }
 
@@ -135,6 +162,7 @@ nav>.nav {
     /* flex: 1; */
     width: 100%;
     max-width: 38rem;
+    padding: 1rem;
     /* margin-left: auto;
     margin-right: auto; */
     margin-top: 4rem;
@@ -162,7 +190,7 @@ nav>.nav {
 }
 
 .post-list .post-item .post-meta {
-    align-items: center;
+    /* align-items: center; */
     justify-content: flex-end;
     display: flex;
     min-width: 100px;
