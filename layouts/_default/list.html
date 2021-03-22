@@ -19,9 +19,11 @@
             <ul class="post-list">
                 {{ range .Pages }}
                 <li class="post-item">
+                    {{ if .Date }}
                     <div class="post-meta">
                         <time>{{ .Date.Format "2006-01-02" }}</time>
                     </div>
+                    {{ end }}
                     <span><a href="{{ .Permalink }}">{{ .Title }}</a></span>
                 </li>
                 {{ end }}
