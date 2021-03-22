@@ -1,0 +1,23 @@
+<nav id="navbar">
+    <div class="nav">
+        <div class="navbar-header">
+          {{- with .Site.Params.favicon }}
+          <img src="{{ . | absURL }}" style="margin-right: 5px; height: 1em;"/>
+          {{- end -}}
+            <a href='{{ "" | absLangURL }}'>
+              {{ .Site.Title }}
+            </a>
+        </div>
+
+        <div class="navbar-menu">
+            <ul class="nav">
+                {{ range .Site.Menus.main.ByWeight }}
+                <li>
+                    <a title="{{ .Name }}" href="{{ .URL  | relLangURL }}">{{ .Name }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+
+    </div>
+</nav>

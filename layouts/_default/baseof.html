@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Params.langOverride }}" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+    {{ partial "head.html" . }}
+
+    <!-- <script>
+    var hdWidth = document.getElementsByClassName('page-heading')[0].offsetWidth;
+    var textWidth = document.getElementsByClassName('hd-text')[0].offsetWidth;
+    var scale = hdWidth / textWidth;
+
+    document.getElementsByClassName('hd-text')[0].style.fontSize = scale * 100 + '%';
+  </script> -->
+</head>
+
+<body id="body">
+    {{ partial "nav.html" . }}
+
+    <div class="flex-container">
+    {{ block "main" . }}{{ end }}
+    </div>
+    {{ partial "footer.html" . }}
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{{ $title := .Title }}
+{{ $subtitle := .Params.subtitle }}
+
+<header class="header post-header">
+    <div class="row">
+        <div class="post-title">
+            {{ if eq .Type "categories" }}
+              {{ if (isset .Site.Params.alias $title) }}
+                {{ $title = index .Site.Params.alias $title }}
+              {{end}}
+            {{ else if eq .Type "list" }}
+              <h1>{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h1>
+            {{ else }}
+              <h1>{{ with $title }}{{.}}{{ else }}<br/>{{ end }}</h1>
+            {{ end }}
+
+            {{ if $subtitle }}
+              <hr class="small">
+              <h4 class="post-subtitle">{{ $subtitle }}</h4>
+            {{ end }}
+        </div>
+        {{ partial "post_meta.html" . }}
+    </div>
+</header>

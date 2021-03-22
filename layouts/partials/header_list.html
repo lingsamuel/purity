@@ -1,0 +1,52 @@
+{{ if .IsHome }} 
+  {{ if .Site.Params.homeTitle }}
+    {{ $.Scratch.Set "title" .Site.Params.homeTitle }}
+  {{ else }}
+    {{ $.Scratch.Set "title" .Site.Title }}
+  {{ end }} 
+
+  {{ if .Site.Params.subtitle }}
+    {{ $.Scratch.Set "subtitle" .Site.Params.subtitle }}
+  {{ end }}
+{{ else }} 
+  {{ $.Scratch.Set "title" .Title }} 
+  {{ if .Params.subtitle }}
+    {{ $.Scratch.Set "subtitle" .Params.subtitle }}
+  {{ end }}
+{{ end }}
+
+{{ $title := $.Scratch.Get "title" }}
+{{ $subtitle := $.Scratch.Get "subtitle" }}
+
+<header class="header">
+    <div class="row">
+        <div class="dir">
+            {{ if eq .Type "categories" }}
+              {{ if (isset .Site.Params.alias $title) }}
+                {{ $title = index .Site.Params.alias $title }}
+              {{end}}
+            {{ else if eq .Type "list" }}
+              <h1>{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h1>
+            {{ else }}
+              <h1>{{ with $title }}{{.}}{{ else }}<br/>{{ end }}</h1>
+            {{ end }}
+            
+            {{ $needHr := false }}
+            {{ $needHr := or $needHr (and (not (in .Site.Params.CustomCssPostType .Type)) (ne .Type "post")) }}
+            {{ $needHr := or $needHr $subtitle }}
+            {{ if $needHr }}
+              <hr class="small">
+            {{ end }}
+
+            {{ if $subtitle }}
+              <h4 class="subtitle">{{ $subtitle }}</h4>
+            {{ end }}
+
+            {{ with .Content }}
+            <section class="intro">
+              {{.}}
+            </section>
+            {{ end }}
+        </div>
+    </div>
+</header>

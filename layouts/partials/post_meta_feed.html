@@ -1,0 +1,11 @@
+
+{{ $url_prefix := $.Site.LanguagePrefix | absURL }}
+
+<div class="post-meta">
+  {{ if .Params.Date }}
+    {{ $datestr := .Date.Format "2006-01-02" }}
+    <span class="date">
+      {{ $datestr}}
+    </span>
+  {{ end }}
+</div>

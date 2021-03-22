@@ -1,0 +1,19 @@
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  
+  <link rel="alternate" href="{{ "index.xml" | absLangURL }}" type="application/rss+xml" title="{{ .Site.Title }}">
+  
+  {{- with .Site.Params.favicon }}
+  <link href='{{ . | absURL }}' rel='icon' type='image/x-icon'/>
+  {{- end -}}
+  
+  <link rel="stylesheet" href="{{ "css/source-serif-text.css" | absURL }}" />
+  <link rel="stylesheet" href="{{ "css/main.css" | absURL }}" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap">  
+
+{{ if (not (in .Site.BaseURL "localhost")) }}
+{{ template "_internal/google_analytics_async.html" . }}
+{{ end }}

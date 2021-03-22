@@ -1,0 +1,33 @@
+{{ define "main" }} 
+
+<div class="container" id="mainContainer" role="main">
+{{ partial "header_list.html" . }}
+
+
+{{ $type := .Type }}
+  <section class="posts">
+      {{ range .Site.Menus.main }}
+        {{ if eq .URL $type }}
+        <h2>{{ .Name }}</h2>
+        {{ end }}
+      {{ end }}
+
+      {{ if eq $type "feed" }}
+        {{ partial "list_feed.html" . }}
+      {{ else }}
+        <div class="row">
+            <ul class="post-list">
+                {{ range .Pages }}
+                <li class="post-item">
+                    <div class="post-meta">
+                        <time>{{ .Date.Format "2006-01-02" }}</time>
+                    </div>
+                    <span><a href="{{ .Permalink }}">{{ .Title }}</a></span>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+      {{ end }}
+  </section>
+</div>
+{{ end }}

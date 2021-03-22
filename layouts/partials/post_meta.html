@@ -1,0 +1,65 @@
+
+{{ $hideMeta := .Params.hideMeta }}
+{{ $url_prefix := $.Site.LanguagePrefix | absURL }}
+
+{{ if (not $hideMeta) }}
+<div class="post-meta">
+
+  {{ if .Site.Params.readingTime }}
+  {{ i18n "readingTime"}}{{ .ReadingTime }}&nbsp;{{ i18n "readTime" }}
+  {{ end }}
+
+  {{ if .Site.Params.wordCount }}
+    <span class="words">
+    {{ .WordCount }}&nbsp;{{ i18n "words" }}
+    </span>
+  {{ end }}
+
+  {{ $hideAuthor := (or (in .Site.Params.hideAuthorType .Type) (.Params.hideAuthor)) }}
+  {{ if (and (and .Site.Author.name .Site.Params.showAuthor) (not $hideAuthor)) }}
+    <span class="author">
+    {{ .Site.Author.name | safeHTML }}
+    </span>
+  {{ end }}
+
+  {{ if .Params.Date }}
+    {{ $lastmodstr := .Lastmod.Format "2006-01-02" }}
+    {{ $datestr := .Date.Format "2006-01-02" }}
+    &bull;
+    <span class="date">
+      {{ $datestr}}
+    </span>
+
+    {{ $showModify := (in .Site.Params.showLastModifyType .Type) }}
+    {{ $showModify := false }}
+    {{ if and (ne $datestr $lastmodstr) $showModify }}
+      <span class="lastmod">
+        {{ $lastmodstr}}
+      </span>
+    {{ end }}
+  {{ end }}
+
+  <!-- Categories -->
+  {{ if .Params.categories }}
+  {{ if not (eq $.Site.LanguagePrefix "") }}
+    {{ $url_prefix = print $url_prefix "/" }}
+  {{ end }}
+  &bull;
+  <span class="categories">
+      {{ range .Params.categories }}
+      <a href="{{ $url_prefix }}categories/{{ . | urlize }}/">{{ . }}</a>&nbsp;
+      {{ end }}
+  </span>
+  {{ end }}
+
+  <!-- Tags -->
+  {{ if .Params.tags }}
+  &bull;
+  <span class="tags">
+  {{ range .Params.tags }}
+      <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
+  {{ end }}
+  </span>
+  {{ end }}
+</div>
+{{ end }}
