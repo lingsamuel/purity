@@ -1,3 +1,0 @@
----
-title: "the Grey Library"
----

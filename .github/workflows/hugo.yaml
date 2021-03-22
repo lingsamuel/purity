@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - site
+      - master
 
 jobs:
   deploy:
@@ -18,6 +19,9 @@ jobs:
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Update Purity to latest
+        run: cd themes/purity && git pull &&  cd ..
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
