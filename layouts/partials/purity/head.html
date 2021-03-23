@@ -6,7 +6,11 @@
   {{ if (isset $.Site.Params.alias $pageTitle ) }}
     {{ $pageTitle = index $.Site.Params.alias $pageTitle }}
   {{end}}
+  {{ if $pageTitle }}
   <title>{{ $pageTitle }} - {{ $.Site.Title }}</title>
+  {{ else }}
+  <title>{{ $.Site.Title }}</title>
+  {{ end }}
 
   <link rel="alternate" href="{{ "index.xml" | absLangURL }}" type="application/rss+xml" title="{{ .Site.Title }}">
   
@@ -15,6 +19,7 @@
   {{- end -}}
   
   {{ partial "utils/minifyCSS.html" "css/main.css" }}
+  {{ partial "utils/minifyCSS.html" "css/book.css" }}
   {{ partial "utils/minifyLazyCSS.html" "css/source-serif-text.css" }}
   {{ partial "utils/minifyLazyCSS.html" "css/fonts.css" }}
   {{ partial "utils/minifyLazyCSS.html" "css/fira-code.css" }}

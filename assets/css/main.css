@@ -53,6 +53,14 @@ code {
 }
 
 /* 
+    Generic Rules
+*/
+
+.capital {
+    text-transform: capitalize;
+}
+
+/* 
     Nav Bar
 */
 
@@ -124,6 +132,10 @@ nav>.nav {
 /* 
     Container - Header
 */
+
+.header {
+    margin-bottom: 2em;
+}
 
 .header h1,
 .header h2,
@@ -202,6 +214,10 @@ ul.post-list  {
     justify-content: space-between;
 }
 
+.post-list .post-item .section {
+    text-decoration: underline;
+}
+
 .post-list .post-item .post-meta {
     /* align-items: center; */
     justify-content: flex-end;
@@ -209,6 +225,11 @@ ul.post-list  {
     min-width: 100px;
     font-size: 0.75em;
     color: #666;
+    min-width: fit-content;
+}
+
+.post-list .post-item .post-meta * {
+    margin-left: 0.5em;
 }
 
 .post-pager {

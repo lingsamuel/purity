@@ -6,13 +6,22 @@
 
 {{ $type := .Type }}
   <section class="posts">
+    {{ if eq .Kind "section" }}
+    {{ partial "utils/book/filetree.html" . }}
+    {{ end }}
+
       {{ if eq $type "categories" }}
       {{ else if eq $type "tags" }}
       {{ else }}
+        {{ $titled := false }}
         {{ range .Site.Menus.main }}
           {{ if eq .URL $type }}
           <h2>{{ .Name }}</h2>
+          {{ $titled = true }}
           {{ end }}
+        {{ end }}
+        {{ if not $titled }}
+          <h2> {{ $type | humanize | pluralize }} </h2>
         {{ end }}
       {{ end }}
 
@@ -20,11 +29,38 @@
           <ul class="post-list">
               {{ range .Pages }}
               <li class="post-item">
-                  <span><a href="{{ .Permalink }}">{{ .Title }}</a></span>
-                  {{ if .Date }}
-                  <div class="post-meta">
-                      <time>{{ .Date.Format "2006-01-02" }}</time>
-                  </div>
+                  {{ if eq .Kind "section" }}
+                    {{ if false }}
+                    <span class="section"><a href="{{ .Permalink }}">{{ .Title }}</a></span>
+                    <div class="post-meta">
+                        <span>Section</span>
+                    </div>
+                    {{ end }}
+                  {{ else }}
+                    {{ if .Title }}
+                      <span><a href="{{ .Permalink }}">
+                        {{ .Title }}
+                      </a></span>
+                    {{ else }}
+                      <span><a class="capital" href="{{ .Permalink }}">
+                      {{ $fileName := path.Base .Page.Path }}
+                      {{ $fileNameLen := len $fileName }}
+                      {{ $extLen := len (path.Ext $fileName) }}
+                      {{ $fileName = substr $fileName 0 (sub 0 $extLen) }}
+                      {{ (humanize $fileName ) }}
+                      </a></span>
+                    {{ end }}
+                    
+                    {{ if or .Date .Content}}
+                    <div class="post-meta">
+                      {{ if .Content }}
+                        <span>Draft</span>
+                      {{ end }}
+                      {{ if .Date }}
+                        <time>{{ .Date.Format "2006-01-02" }}</time>
+                      {{ end }}
+                    </div>
+                    {{ end }}
                   {{ end }}
               </li>
               {{ end }}

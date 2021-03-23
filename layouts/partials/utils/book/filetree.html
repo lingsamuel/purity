@@ -1,0 +1,81 @@
+
+{{ $bookSection := default "docs" .Site.Params.BookSection  }}
+{{ if eq $bookSection "*" }}
+{{ $bookSection = "/" }}
+{{ end }}
+
+{{ if eq .Kind "section" }}
+    {{ $bookSection = .URL }}
+{{ end }}
+
+{{ $rootSection := .Section }}
+{{ if .Params.sectionShowCurrent }}
+    {{ $rootSection = "" }}
+{{ end }}
+
+{{ $hasSubSection := false }}
+{{ $hasSubSection = or $hasSubSection .Params.sectionShowCurrent }}
+{{ $hasSubSection = or $hasSubSection .Params.section }}
+{{ range .Pages }}
+    {{ if .IsSection }}
+        {{ $hasSubSection = true }}
+    {{ end }}
+{{ end }}
+
+{{ if $hasSubSection }}
+<div class="book-menu"> 
+    <h2>{{ default "Index" .Params.sectionTitle }}</h2>
+{{ with .Site.GetPage $bookSection }}
+    {{ template "book-section-children" (dict "Page" . "CurrentPage" $ "RootSection" $rootSection ) }}
+{{ end }}
+</div>
+{{ end }}
+
+{{ define "book-section-children" }}{{/* (dict "Page" .Section "CurrentPage" .CurrentPage) */}}
+<div class="book-section">
+  <ul>
+    {{ $isRoot := eq $.Page.Section $.RootSection }}
+    {{ range (where .Page.Pages "Params.bookhidden" "ne" true) }}
+        {{ if .IsSection }}
+        <li {{- if .Params.BookFlatSection }} class="book-section-flat" {{ end -}}>
+            {{ template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}
+            {{ template "book-section-children" (dict "Page" . "CurrentPage" $.CurrentPage "RootSection" $.RootSection) }}
+        </li>
+        {{/* else if and .IsPage .Content */}}
+        {{ else if and (not $isRoot) .IsPage }}
+        <li>
+            {{ template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}
+        </li>
+        {{ end }}
+    {{ end }}
+  </ul>
+</div>
+{{ end }}
+
+{{ define "book-page-link" }}{{/* (dict "Page" .Page "CurrentPage" .CurrentPage) */}}
+    {{ $current := eq .CurrentPage .Page }}
+    {{ $ancestor := .Page.IsAncestor .CurrentPage }}
+
+    {{ $isDraft := and .Page.IsPage .Page.Content }}
+    {{ $hasMeta := .Page.IsSection }}
+    {{ $hasMeta := or $hasMeta $isDraft }}
+<div class="book-item">
+    {{ if .Page.Content }}
+    <a href="{{ .Page.Permalink }}" class="{{ if $current }} active{{ end }}">
+        {{- partial "utils/book/title" .Page -}}
+    </a>
+    {{ else }}
+    <a href="{{ .Page.Permalink }}">{{- partial "utils/book/title" .Page -}}</a>
+    {{ end }}
+    {{ if $hasMeta }}
+    <div class="book-meta">
+        {{ if .Page.IsSection }}
+            Section
+        {{ else if $isDraft }}
+            Draft
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+{{ end }}
+
