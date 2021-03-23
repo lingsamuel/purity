@@ -1,6 +1,6 @@
 {{ define "main" }} 
 <div class="container" id="mainContainer" role="main">
-{{ partial "header_single.html" . }}
+{{ partial "purity/header_single.html" . }}
   <div class="row">
     {{ $hasTOC := and (gt (len .TableOfContents) 32) (ne .Params.toc false) }}
     <div>

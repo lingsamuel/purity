@@ -1,7 +1,7 @@
 {{ define "main" }} 
 
 <div class="container" id="mainContainer" role="main">
-{{ partial "header_index.html" . }}
+{{ partial "purity/header_index.html" . }}
 
   <div role="main" class="container">
     <div class="row">
@@ -19,7 +19,7 @@
               </h3>
             {{ end }}
 
-            {{ partial "post_meta.html" . }}
+            {{ partial "purity/post_meta.html" . }}
             <div class="post-entry">
               {{ .Content }}
             </div>
