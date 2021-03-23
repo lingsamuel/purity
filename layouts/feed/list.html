@@ -1,0 +1,53 @@
+{{ define "main" }} 
+
+<div class="container" id="mainContainer" role="main">
+{{ partial "header_list.html" . }}
+
+{{ $type := .Type }}
+  <section class="posts">
+      <div class="row">
+        <div class="posts-list">
+        {{ $kind := .Kind }}
+        {{ range .Pages }}
+          {{ $isHide := false}}
+          {{ if not (eq $kind "section") }}
+            {{ $isHide = false }}
+          {{ end }}
+      
+          {{ if and (not .Params.hide) (not $isHide) }}
+            <article class="post-preview">
+              {{ if .Title }}
+                <h2 class="post-title">{{ .Title }}</h2>
+              {{ end }}
+      
+              {{ if .Params.subtitle }}
+                <h3 class="post-subtitle">{{ .Params.subtitle }}</h3>
+              {{ end }}
+      
+              <div class="post-header">
+                <div class="post-meta">
+
+                  {{ if not .Site.Params.hideAuthor }}
+                    <span class="author">
+                    {{ (default .Site.Author.name .Params.Author) | safeHTML }}
+                    </span>
+                  {{ end }}
+
+                  {{ if .Params.Date }}
+                    <span class="date">
+                      {{ .Date.Format "2006-01-02" }}
+                    </span>
+                  {{ end }}
+                </div>
+              </div>
+              <div class="post-entry">
+                {{ .Content }}
+              </div>
+            </article>
+          {{ end }}
+          {{ end }}
+        </div>
+      </div>
+  </section>
+</div>
+{{ end }}

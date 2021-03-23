@@ -16,24 +16,20 @@
         {{ end }}
       {{ end }}
 
-      {{ if eq $type "feed" }}
-        {{ partial "list_feed.html" . }}
-      {{ else }}
-        <div class="row">
-            <ul class="post-list">
-                {{ range .Pages }}
-                <li class="post-item">
-                    <span><a href="{{ .Permalink }}">{{ .Title }}</a></span>
-                    {{ if .Date }}
-                    <div class="post-meta">
-                        <time>{{ .Date.Format "2006-01-02" }}</time>
-                    </div>
-                    {{ end }}
-                </li>
-                {{ end }}
-            </ul>
-        </div>
-      {{ end }}
+      <div class="row">
+          <ul class="post-list">
+              {{ range .Pages }}
+              <li class="post-item">
+                  <span><a href="{{ .Permalink }}">{{ .Title }}</a></span>
+                  {{ if .Date }}
+                  <div class="post-meta">
+                      <time>{{ .Date.Format "2006-01-02" }}</time>
+                  </div>
+                  {{ end }}
+              </li>
+              {{ end }}
+          </ul>
+      </div>
   </section>
 </div>
 {{ end }}

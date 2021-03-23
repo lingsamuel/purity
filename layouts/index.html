@@ -7,73 +7,25 @@
     <div class="row">
       <div class="post-list">
         {{ $pag := .Paginate (where .Data.Pages "Type" "post") }}
-        {{/* $pag := .Paginate (.Data.Pages) */}}
+        {{/* $pag := .Paginate (.Data.Pages) 2147483647 */}}
         {{ range $pag.Pages }}
           <article class="post-preview">
-            {{ if not .Params.hideLink }}
-            <a href="{{ .Permalink }}">
+            {{ if .Title }}
+              <h2 class="post-title">{{ .Title }}</h2>
             {{ end }}
-              {{ if .Title }}
-                <h2 class="post-title">{{ .Title }}</h2>
-              {{ end }}
-              {{ if .Params.subtitle }}
-                <h3 class="post-subtitle">
-                {{ .Params.subtitle }}
-                </h3>
-              {{ end }}
-              {{ if .Params.image }}
-              <img src="{{ .Params.image }}" alt="{{ .Title }}" class="img-title" />
-              {{ end }}
-            </a>
+            {{ if .Params.subtitle }}
+              <h3 class="post-subtitle">
+              {{ .Params.subtitle }}
+              </h3>
+            {{ end }}
 
             {{ partial "post_meta.html" . }}
             <div class="post-entry">
-              {{ $needTruncate := .Truncated }}
-              {{ if .Params.Summary }}
-                {{ $needTruncate = .Params.Summary }}
-              {{ else }}
-                {{ if (in .Site.Params.disableTruncate .Type) }}
-                  {{ $needTruncate = false }}
-                {{ end }}
-              {{ end }}
-              {{ if not $needTruncate }}
-                {{ .Content }}
-              {{ end }}
+              {{ .Content }}
             </div>
-
-            {{ if or .Params.tags $needTruncate }}
-              <div class="post-entry post-foot-meta-box partial-index">
-              {{ if .Params.tags }}
-                <div class="blog-tags">
-                  {{ range .Params.tags }}
-                    <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
-                  {{ end }}
-                </div>
-              {{ end }}
-
-              {{ if $needTruncate }}
-                <a href="{{ .Permalink }}" class="post-read-more">[{{ i18n "readMore" }}]</a>
-              {{ end }}
-              </div>
-            {{ end }}
           </article>
         {{ end }}
       </div>
-
-      {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
-        <ul class="pager main-pager">
-          {{ if .Paginator.HasPrev }}
-            <li class="previous">
-              <a href="{{ .URL }}page/{{ .Paginator.Prev.PageNumber }}/">&larr; {{ i18n "newerPosts" }}</a>
-            </li>
-          {{ end }}
-          {{ if .Paginator.HasNext }}
-            <li class="next">
-              <a href="{{ .URL }}page/{{ .Paginator.Next.PageNumber }}/">{{ i18n "olderPosts" }} &rarr;</a>
-            </li>
-          {{ end }}
-        </ul>
-      {{ end }}
     </div>
   </div>
 </div>

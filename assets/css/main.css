@@ -173,6 +173,10 @@ nav>.nav {
     margin-bottom: 4rem;
 }
 
+.container .container {
+    margin-bottom: 0rem;
+}
+
 .container a {
     text-decoration: none;
 }
