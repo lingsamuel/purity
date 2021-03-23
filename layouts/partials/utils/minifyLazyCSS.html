@@ -1,0 +1,6 @@
+{{ $styles := resources.Get . | minify | fingerprint }}
+<link rel="preload" 
+    href="{{ $styles.Permalink }}" 
+    integrity="{{ $styles.Data.Integrity }}" 
+    media="screen"
+    as="style" onload="this.rel='stylesheet'">
