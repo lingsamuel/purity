@@ -56,7 +56,7 @@
     {{ $current := eq .CurrentPage .Page }}
     {{ $ancestor := .Page.IsAncestor .CurrentPage }}
 
-    {{ $isDraft := and .Page.IsPage .Page.Content }}
+    {{ $isDraft := and .Page.IsPage (not .Page.Content) }}
     {{ $hasMeta := .Page.IsSection }}
     {{ $hasMeta := or $hasMeta $isDraft }}
 <div class="book-item">

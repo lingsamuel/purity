@@ -53,7 +53,7 @@
                     
                     {{ if or .Date .Content}}
                     <div class="post-meta">
-                      {{ if .Content }}
+                      {{ if not .Content }}
                         <span>Draft</span>
                       {{ end }}
                       {{ if .Date }}
