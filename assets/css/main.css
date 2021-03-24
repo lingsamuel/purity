@@ -264,7 +264,7 @@ ul.post-list  {
 */
 
 #toc {
-    margin-left: 4rem;
+    /* margin-left: 4rem; */
 }
 
 @media screen and (max-width: 1200px) {
