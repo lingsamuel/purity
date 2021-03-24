@@ -385,6 +385,10 @@ ul.post-list  {
     PAGE (single) styles
 */
 
+.post-header .post-title {
+    margin-bottom: 2em;
+}
+
 .post-header .post-title h1 {
     letter-spacing: normal;
     margin: 1.5rem 0 2.5rem;
