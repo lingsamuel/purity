@@ -376,7 +376,7 @@ ul.post-list {
 }
 
 .post-preview a {
-    text-decoration: underline;
+    border-bottom: 1px dotted #000;
 }
 
 
@@ -436,7 +436,7 @@ ul.post-list {
 }
 
 .post-content a {
-    text-decoration: underline;
+    border-bottom: 1px dotted #000;
 }
 
 /* 
