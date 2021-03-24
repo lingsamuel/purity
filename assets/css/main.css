@@ -431,6 +431,9 @@ ul.post-list {
     text-decoration: underline;
 }
 
+.post-content a {
+    text-decoration: underline;
+}
 
 /* 
     Markdown Element Styles

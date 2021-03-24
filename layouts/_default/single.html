@@ -4,7 +4,7 @@
   <div class="row">
     {{ $hasTOC := and (gt (len .TableOfContents) 32) (ne .Params.toc false) }}
     <div>
-      <article role="main" class="blog-post">
+      <article role="main" class="post-content">
         {{ .Content }}
 
         <div id="refContainer">
