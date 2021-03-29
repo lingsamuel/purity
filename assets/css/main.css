@@ -35,7 +35,10 @@ img {
 
 body {
     color: #000;
-    background-color: #fff;
+    /* background-color: #fff;
+    background-color: #EFEFEF;
+    background-color: #FEFEFE; */
+    background-color: #FFFEFE;
     font-family: 'Source Serif', 'Source Han Serif SC', 'Source Han Serif CN', serif;
     font-weight: 400;
     line-height: 1.5rem;
@@ -67,39 +70,71 @@ h6 {
 }
 
 h1 {
-    font-size: 1.7em;
+    font-size: 2em;
     margin-block-start: 0.83em;
     margin-block-end: 0.83em;
 }
 
 h2 {
-    font-size: 1.5em;
+    font-size: 1.7em;
     margin-block-start: 0.83em;
     margin-block-end: 0.83em;
 }
 
 h3 {
-    font-size: 1.3em;
+    font-size: 1.5em;
     margin-block-start: 1em;
     margin-block-end: 1em;
 }
 
 h4 {
-    font-size: 1.2em;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+    font-size: 1.3em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
 }
 
 h5 {
-    font-size: 1.1em;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+    font-size: 1.15em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
 }
 
 h6 {
     font-size: 1.05em;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+}
+
+table {
+    border-spacing: 0;
+}
+
+td {
+    padding: 0;
+}
+
+/* Scrollbar */
+
+ ::-webkit-scrollbar {
+    /* width: 0.5rem; */
+}
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    /* background: #EEE; */
+}
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    /* background: #999; */
+}
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    /* background: #CCC; */
 }
 
 
@@ -615,4 +650,10 @@ span.spoiler>* {
 span.spoiler:not(:hover) {
     color: transparent;
     /* background-color: #FFF; */
+}
+
+/* Footnote */
+
+.post-content .footnote-backref {
+    border-bottom: none;
 }
