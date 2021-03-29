@@ -11,7 +11,7 @@
       {{ if not (eq $.Site.LanguagePrefix "") }}
         {{ $url_prefix = print $url_prefix "/" }}
       {{ end }}
-      <div class="post-header">
+      <address class="post-header">
         <h4 class="post-title">
           <a href="{{ $url_prefix }}{{ $data.Plural }}/{{ $value.Name | urlize }}/">
             {{ if and (eq $data.Singular "category") (isset $site.Params.alias $value.Name) }}
@@ -24,7 +24,7 @@
           </a>
           <span class="badge">({{ $value.Count }})</span>
         </h4>
-      </div>
+      </address>
       <ul class="post-list">
         {{ range $item := $value.WeightedPages }}
           <li class="post-item">

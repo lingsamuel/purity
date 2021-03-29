@@ -24,7 +24,7 @@
                 <h3 class="post-subtitle">{{ .Params.subtitle }}</h3>
               {{ end }}
       
-              <div class="post-header">
+              <address class="post-header">
                 <div class="post-meta">
 
                   {{ if not .Site.Params.hideAuthor }}
@@ -39,7 +39,7 @@
                     </span>
                   {{ end }}
                 </div>
-              </div>
+              </address>
               <div class="post-entry">
                 {{ .Content }}
               </div>

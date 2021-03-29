@@ -6,6 +6,7 @@
 
 * {
     font-variant-ligatures: common-ligatures;
+    quotes: '\201C' '\201D' '\2018' '\2019';
 }
 
 html {
@@ -52,6 +53,13 @@ code {
     font-family: 'Fira Code', 'Source Han Sans SC', 'Source Han Sans CN', monospace;
 }
 
+address {
+    font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-transform: capitalize;
+}
 
 /* 
     Generic Rules
@@ -215,6 +223,10 @@ ul.post-list {
     justify-content: space-between;
 }
 
+.post-list .post-item a {
+    text-transform: capitalize;
+}
+
 .post-list .post-item .section {
     text-decoration: underline;
 }
@@ -376,7 +388,7 @@ ul.post-list {
 }
 
 .post-preview a {
-    border-bottom: 1px dotted #000;
+    border-bottom: .1em solid #000;
 }
 
 
@@ -399,13 +411,13 @@ ul.post-list {
 }
 
 .post-header .post-meta {
-    color: #CCC;
+    color: #BBB;
     display: flex;
     justify-content: left;
 }
 
 .post-header .post-meta * {
-    color: #CCC;
+    color: #BBB;
 }
 
 .post-header .post-meta span:first-child {
@@ -436,8 +448,9 @@ ul.post-list {
 }
 
 .post-content a {
-    border-bottom: 1px dotted #000;
+    border-bottom: .1em solid #000;
 }
+
 
 /* 
     Markdown Element Styles
@@ -473,23 +486,36 @@ pre code {
 /* Blockquote */
 
 blockquote {
-    background: inherit;
-    color: #888;
-    border-left: 0 solid #ccc;
+    /* background: inherit; */
+    /* color: #888; */
+    /* font-size: 0.9em; */
+    color: rgba(0, 0, 0, 0.8);
+    border-left: 3px solid #000;
     margin: 1rem 10px;
-    padding: .5rem 10px;
-    quotes: '\201C' '\201D' '\2018' '\2019';
-    position: relative
+    margin-left: calc(-1em - 3px);
+    /* padding: .5rem 10px; */
+    padding-left: calc(1em);
+    /* position: relative */
 }
 
-blockquote:before {
+blockquote p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+blockquote blockquote {
+    margin-left: -3px;
+}
+
+
+/* blockquote:before {
     position: absolute;
     color: #888;
     content: '\201C';
     font-size: 2em;
     left: -.3rem;
     top: .25rem
-}
+} */
 
 
 /* Figure Caption */
