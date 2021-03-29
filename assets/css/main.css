@@ -57,9 +57,51 @@ address {
     font-style: normal;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    text-transform: capitalize;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /* text-transform: capitalize; */
 }
+
+h1 {
+    font-size: 1.7em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+}
+
+h3 {
+    font-size: 1.3em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+
+h4 {
+    font-size: 1.2em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+
+h5 {
+    font-size: 1.1em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+
+h6 {
+    font-size: 1.05em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+
 
 /* 
     Generic Rules
@@ -152,8 +194,8 @@ nav>.nav {
 .header h4,
 .header h5,
 .header h6 {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
     font-variant-caps: small-caps;
     text-align: center;
 }
@@ -381,8 +423,8 @@ ul.post-list {
 .post-preview h4,
 .post-preview h5,
 .post-preview h6 {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-block-start: 0;
+    margin-block-start: 0;
     font-variant-caps: small-caps;
     text-align: center;
 }
@@ -408,6 +450,10 @@ ul.post-list {
     line-height: 1.25;
     font-weight: 500;
     text-align: center;
+}
+
+.post-header .post-subtitle {
+    text-transform: unset;
 }
 
 .post-header .post-meta {
@@ -499,8 +545,8 @@ blockquote {
 }
 
 blockquote p {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
 }
 
 blockquote blockquote {
@@ -535,4 +581,38 @@ blockquote blockquote {
 .figcaption.figcaption-right {
     text-align: right;
     padding-right: 0.5em;
+}
+
+
+/* Spoiler */
+
+.spoiler,
+.spoiler>* {
+    /* transition: color 0s, opacity 0s; */
+}
+
+.spoiler:not(:hover) {
+    color: transparent;
+}
+
+.spoiler:not(:hover)>* {
+    opacity: 0;
+}
+
+
+/* Inline Spoiler */
+
+
+/* <span class="spoiler">HTML + CSS Implement:</span> */
+
+span.spoiler,
+span.spoiler>* {
+    background-color: #FFF;
+    filter: invert(100%);
+    /* color: inherit; */
+}
+
+span.spoiler:not(:hover) {
+    color: transparent;
+    /* background-color: #FFF; */
 }

@@ -1,5 +1,5 @@
 <footer id="footer">
     <div class="footer">
-        <p>Copyright © {{ .Site.LastChange.Format "2006" }} {{ .Site.Author.name }} &bull; Powered by <a href="https://gohugo.io">Hugo v{{ .Hugo.Version }}</a>  &bull; Theme <a href="https://github.com/lingsamuel/purity">Purity</a> &bull; Hosted by GitHub</p>
+        <p>Copyright © {{ .Site.LastChange.Format "2006" }} <a href="{{ default .Site.BaseURL .Site.Author.website }}">{{ .Site.Author.name }}</a> &bull; Powered by <a href="https://gohugo.io">Hugo v{{ .Hugo.Version }}</a>  &bull; Theme <a href="https://github.com/lingsamuel/purity">Purity</a> &bull; Hosted by GitHub</p>
     </div>
 </footer>
