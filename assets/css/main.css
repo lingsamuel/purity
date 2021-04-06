@@ -19,6 +19,13 @@ html {
 
 hr {
     background-color: #000;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid;
+    margin: 50px auto;
+    padding: 0;
+    max-width: 300px;
 }
 
 a {
@@ -113,11 +120,13 @@ td {
     padding: 0;
 }
 
+
 /* Scrollbar */
 
  ::-webkit-scrollbar {
     /* width: 0.5rem; */
 }
+
 
 /* Track */
 
@@ -125,11 +134,13 @@ td {
     /* background: #EEE; */
 }
 
+
 /* Handle */
 
  ::-webkit-scrollbar-thumb {
     /* background: #999; */
 }
+
 
 /* Handle on hover */
 
@@ -263,7 +274,7 @@ nav>.nav {
 .container {
     /* flex: 1; */
     width: 100%;
-    max-width: 38rem;
+    max-width: 42rem;
     padding: 1rem;
     /* margin-left: auto;
     margin-right: auto; */
@@ -651,6 +662,7 @@ span.spoiler:not(:hover) {
     color: transparent;
     /* background-color: #FFF; */
 }
+
 
 /* Footnote */
 
