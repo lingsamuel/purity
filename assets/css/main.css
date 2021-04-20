@@ -183,6 +183,7 @@ nav>.nav {
 .nav .navbar-header {
     display: flex;
     align-items: center;
+    margin-right: 10px;
 }
 
 .nav .navbar-header a {
@@ -207,7 +208,7 @@ nav>.nav {
 .nav .navbar-menu ul {
     margin: 0;
     padding: 0;
-    margin-right: -10px;
+    margin-right: -20px;
     list-style: none;
     display: flex;
     align-items: center;
@@ -222,7 +223,9 @@ nav>.nav {
 }
 
 .nav .navbar-menu li {
-    margin: 10px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 
