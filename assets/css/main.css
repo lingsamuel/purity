@@ -46,7 +46,7 @@ body {
     background-color: #EFEFEF;
     background-color: #FEFEFE; */
     background-color: #FFFEFE;
-    font-family: 'Source Serif', 'Source Han Serif SC', 'Source Han Serif CN', serif;
+    font-family: 'Source Serif Pro', 'Noto Serif SC', 'Source Serif', 'Source Han Serif SC', 'Source Han Serif CN', serif;
     font-weight: 400;
     line-height: 1.5rem;
     text-rendering: geometricPrecision;
@@ -60,7 +60,7 @@ body {
 }
 
 code {
-    font-family: 'Fira Code', 'Source Han Sans SC', 'Source Han Sans CN', monospace;
+    font-family: 'Fira Code', 'Noto Sans SC', 'Source Han Sans SC', 'Source Han Sans CN', monospace;
 }
 
 address {
@@ -620,7 +620,7 @@ blockquote blockquote {
     color: #666;
     margin: 0;
     font-size: .8em;
-    font-family: 'Source Han Sans SC', 'Source Han Sans CN', sans-serif;
+    font-family: 'Noto Sans SC', 'Source Han Sans SC', 'Source Han Sans CN', sans-serif;
     font-style: italic;
 }
 

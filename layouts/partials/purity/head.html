@@ -18,6 +18,9 @@
   <link href='{{ . | absURL }}' rel='icon' type='image/x-icon' alt="favicon"/>
   {{- end -}}
   
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+  
   {{ partial "utils/minifyCSS.html" "css/main.css" }}
   {{ partial "utils/minifyCSS.html" "css/book.css" }}
   {{ partial "utils/minifyCSS.html" "css/source-serif-text.css" }}
