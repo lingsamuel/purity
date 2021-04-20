@@ -1,5 +1,5 @@
 {{ $styles := resources.Get . | minify | fingerprint }}
 <link rel="stylesheet" 
     href="{{ $styles.Permalink }}" 
-    integrity="{{ $styles.Data.Integrity }}" 
+    {{/* integrity="{{ $styles.Data.Integrity }}"  */}}
     media="screen">

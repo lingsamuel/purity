@@ -23,7 +23,7 @@ hr {
     height: 1px;
     border: 0;
     border-top: 1px solid;
-    margin: 50px auto;
+    margin: 2em auto;
     padding: 0;
     max-width: 300px;
 }
@@ -508,6 +508,7 @@ ul.post-list {
 
 .post-header .post-subtitle {
     text-transform: unset;
+    margin-bottom: 1em;
 }
 
 .post-header .post-meta {
