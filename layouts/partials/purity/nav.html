@@ -16,6 +16,8 @@
                     <a title="{{ .Name }}" href="{{ .URL  | relLangURL }}">{{ .Name }}</a>
                 </li>
                 {{ end }}
+
+                {{ partial "dev/nav.html" . }}
             </ul>
         </div>
 

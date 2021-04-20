@@ -1,0 +1,9 @@
+{{ if (in .Site.BaseURL "localhost") }}
+
+{{ range .Site.Menus.dev.ByWeight }}
+<li>
+    <a title="{{ .Name }}" href="{{ .URL  | relLangURL }}">{{ .Name }}</a>
+</li>
+{{ end }}
+
+{{ end }}

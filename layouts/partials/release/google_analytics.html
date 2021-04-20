@@ -1,0 +1,3 @@
+{{ if (not (in .Site.BaseURL "localhost")) }}
+{{ template "_internal/google_analytics_async.html" . }}
+{{ end }}
