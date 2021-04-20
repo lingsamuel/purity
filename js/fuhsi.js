@@ -337,8 +337,9 @@ function tryTranspile(elem) {
       // node.lang = arr[0].lang;
       // elem.lang = arr[0].lang;
       if (hasQuote(arr[0].content)) {
-        // console.log(str, arr[0].lang, parentFontFamily)
-        elem.style.fontFamily = autoQuote(arr[0].lang, parentFontFamily);
+        const final = autoQuote(arr[0].lang, parentFontFamily);
+        console.log(str, "has lang: ", arr[0].lang, ". From: ", parentFontFamily, " to ", final)
+        elem.style.fontFamily = final;
       }
       // 仅含一种语言
       continue;
@@ -351,8 +352,9 @@ function tryTranspile(elem) {
         newNode = document.createTextNode(arr[i].content);
       } else {
         newNode = document.createElement("span");
-        // console.log(str, arr[0].lang, parentFontFamily)
-        newNode.style.fontFamily = autoQuote(arr[i].lang, parentFontFamily, true);
+        const final = autoQuote(arr[i].lang, parentFontFamily, true);
+        console.log(str, "has lang: ", arr[0].lang, ". From: ", parentFontFamily, " to ", final)
+        newNode.style.fontFamily = final;
         newNode.textContent = arr[i].content;
       }
       // newNode.lang = arr[i].lang;
@@ -365,7 +367,7 @@ function tryTranspile(elem) {
 
 function fuhsi() {
   let start = new Date();
-  console.log("parse start", start)
+  console.log("parse start", start.toISOString())
   // console.log($("div#container"))
   Array.from(document.getElementsByTagName("body")[0].children).forEach((elem, i) => {
     // console.log(elem, elem.hasChildNodes())
@@ -375,7 +377,7 @@ function fuhsi() {
   //   tryTranspile(elem);
   // })
   let end = new Date();
-  console.log("parse end", end, "take", end - start, "ms")
+  console.log("parse end", end.toISOString(), ", take", end - start, "ms")
 }
 
 // $(document).ready(fuhsi);
