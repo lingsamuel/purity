@@ -2,7 +2,7 @@
     <div class="nav">
         <div class="navbar-header">
           {{- with .Site.Params.favicon }}
-          <img src="{{ . | absURL }}" class="favicon"/>
+          <img src="{{ . | absURL }}" class="favicon" alt="favicon"/>
           {{- end -}}
             <a href='{{ "" | absLangURL }}'>
               {{ .Site.Title }}

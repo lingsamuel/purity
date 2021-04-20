@@ -512,13 +512,13 @@ ul.post-list {
 }
 
 .post-header .post-meta {
-    color: #BBB;
+    color: #999;
     display: flex;
     justify-content: left;
 }
 
 .post-header .post-meta * {
-    color: #BBB;
+    color: #999;
 }
 
 .post-header .post-meta span:first-child {

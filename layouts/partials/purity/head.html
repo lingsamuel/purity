@@ -1,6 +1,6 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
   
   {{ $pageTitle := .Title }}
   {{ if (isset $.Site.Params.alias $pageTitle ) }}
@@ -19,8 +19,10 @@
   {{- end -}}
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  {{ partial "utils/lazyCSS.html" "https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" }}
-  
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+  {{ partial "utils/lazyCSS.html" "https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Serif+SC:wght@200;300;500;600;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" }}
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet"> -->
+
   {{ partial "utils/minifyCSS.html" "css/main.css" }}
   {{ partial "utils/minifyLazyCSS.html" "css/book.css" }}
   {{/* partial "utils/minifyCSS.html" "css/source-serif-text.css" */}}
@@ -31,9 +33,9 @@
 
   <link rel="preload" 
   data-dep="katex"
+  href="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css" 
+  integrity="sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5" 
   crossorigin="anonymous"
-  integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y"
-  href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" 
   media="screen"
   as="style" onload="this.rel='stylesheet'">
   
