@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-<div class="container" id="mainContainer" role="main">
+<div class="container container-terms" id="mainContainer" role="main">
 {{ partial "purity/header_terms.html" . }}
 
 {{ $data := .Data }}
@@ -37,11 +37,8 @@
             {{ else }}
               <a href="{{$item.Permalink}}">{{ $item.Title }}</a>
             {{ end }}
-            {{ if .Date }}
-            <div class="post-meta">
-                <time>{{ .Date.Format "2006-01-02" }}</time>
-            </div>
-            {{ end }}
+
+            {{ partial "purity/list_meta.html" . }}
           </li>
         {{ end }}
       </ul>

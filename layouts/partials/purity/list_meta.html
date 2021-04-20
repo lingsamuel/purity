@@ -1,0 +1,13 @@
+
+{{ if or .Date .Content}}
+<div class="post-meta">
+    {{ if (not .Content)}}
+    <span>Empty</span>
+    {{ else if (.Params.draft) }}
+    <span>Draft</span>
+    {{ end }}
+    {{ if .Date }}
+    <time>{{ .Date.Format "2006-01-02" }}</time>
+    {{ end }}
+</div>
+{{ end }}

@@ -1,6 +1,6 @@
 {{ define "main" }} 
 
-<div class="container" id="mainContainer" role="main">
+<div class="container container-list" id="mainContainer" role="main">
 {{ partial "purity/header_list.html" . }}
 
 
@@ -51,16 +51,7 @@
                       </a></span>
                     {{ end }}
                     
-                    {{ if or .Date .Content}}
-                    <div class="post-meta">
-                      {{ if not .Content }}
-                        <span>Draft</span>
-                      {{ end }}
-                      {{ if .Date }}
-                        <time>{{ .Date.Format "2006-01-02" }}</time>
-                      {{ end }}
-                    </div>
-                    {{ end }}
+                    {{ partial "purity/list_meta.html" . }}
                   {{ end }}
               </li>
               {{ end }}

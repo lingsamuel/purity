@@ -296,6 +296,11 @@ nav>.nav {
     TERMS (categoreis/tags) styles
 */
 
+.container-terms h1 {
+    font-variant-caps: unset;
+    text-transform: uppercase;
+}
+
 .post-list {
     list-style: none;
 }
@@ -484,9 +489,9 @@ ul.post-list {
     PAGE (single) styles
 */
 
-.post-header .post-title {
+/* .post-header .post-title {
     margin-bottom: 2em;
-}
+} */
 
 .post-header .post-title h1 {
     letter-spacing: normal;
