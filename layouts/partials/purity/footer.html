@@ -1,5 +1,150 @@
 <footer id="footer">
     <div class="footer">
-        <p>Copyright © {{ .Site.LastChange.Format "2006" }} <a href="{{ default .Site.BaseURL .Site.Author.website }}">{{ .Site.Author.name }}</a> &bull; Powered by <a href="https://gohugo.io">Hugo v{{ .Hugo.Version }}</a>  &bull; Theme <a href="https://github.com/lingsamuel/purity">Purity</a> &bull; Hosted by GitHub</p>
+        <p>Copyright © {{ .Site.LastChange.Format "2006" }}
+            <a href="{{ default .Site.BaseURL .Site.Author.website }}">{{ .Site.Author.name }}</a> &bull; Powered by <a href="https://gohugo.io">Hugo v{{ .Hugo.Version }}</a> &bull; Theme <a href="https://github.com/lingsamuel/purity">Purity</a> &bull;
+            Hosted by GitHub
+        </p>
     </div>
 </footer>
+
+<script data-stage="prerender" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script data-stage="prerender" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+
+{{ partial "utils/minifyCSS.html" "css/mermaid.css" }}
+<!-- <link href="{{" css/mermaid.css " | absURL}}" type="text/css" rel="stylesheet" /> -->
+<script data-stage="prerender" src='{{"js/mermaid.min.js" | absURL}}'></script>
+
+<script data-stage="prerender">
+    const mermaidKeywords = [
+        "graph TD",
+        "graph TB",
+        "graph BT",
+        "graph RL",
+        "graph LR",
+        "sequenceDiagram",
+        "gantt",
+        "classDiagram",
+        "gitGraph",
+        "erDiagram",
+        "journey"
+    ];
+
+    function colorizeMermaid(text) {
+        const flowChart = `
+      linkStyle default fill:none,stroke:grey;
+      classDef default stroke:#97999a,color:#696874;
+      classDef def stroke:#97999a,color:#696874;
+      classDef Blue stroke:#97999a,fill:#76aac2,color:#eff1f3;
+      classDef Grey stroke:#97999a,fill:#696773,color:#eef0f2;
+      classDef Red stroke:#97999a,fill:#f19b97,color:#fcefee;
+      classDef Green stroke:#97999a,fill:#79d8ce,color:#edf0f2;
+      classDef Yellow stroke:#97999a,fill:#fcd766,color:#807971;
+      
+      classDef Yellow1 stroke:#97999a,fill:#ffe85f,color:#807971;
+      classDef Yellow2 stroke:#97999a,fill:#f2cc2c,color:#edf0f2;
+      classDef Green1 stroke:#97999a,fill:#15ffd8,color:#807971;
+      classDef Green2 stroke:#97999a,fill:#18e8c0,color:#807971;
+      classDef Green3 stroke:#97999a,fill:#18d3af,color:#edf0f2;
+      classDef Green4 stroke:#97999a,fill:#17bf9f,color:#edf0f2;
+      classDef Red1 stroke:#97999a,fill:#ff6679,color:#fcefee;
+      classDef Red2 stroke:#97999a,fill:#f45d6b,color:#fcefee;
+      classDef Red3 stroke:#97999a,fill:#ff505d,color:#fcefee;
+      classDef Red4 stroke:#97999a,fill:#db424d,color:#fcefee;
+      classDef Blue1 stroke:#97999a,fill:#61b0ff,color:#eff1f3;
+      classDef Blue2 stroke:#97999a,fill:#3b8bff,color:#eff1f3;
+      classDef Purple1 stroke:#97999a,fill:#c2a2d5,color:#807971;
+      classDef Purple2 stroke:#97999a,fill:#986fb5,color:#807971;
+      classDef Orange1 stroke:#97999a,fill:#ffb164,color:#807971;
+      classDef Orange2 stroke:#97999a,fill:#f9973e,color:#807971;
+  `
+        if (text.startsWith("graph")) {
+            return text + flowChart;
+        }
+        return text;
+    }
+
+    var elements = Array.from(document.getElementsByClassName("language-fallback")).forEach((element, i) => {
+        //console.log(element.parentElement.parentElement)
+        var graphDefinition = element.innerText;
+
+        if (mermaidKeywords.some((keyword) => graphDefinition.startsWith(keyword))) {
+            var parent = element.parentElement.parentElement;
+            if (parent.className == "highlight") {
+                parent.className = "mermaid";
+                parent.innerHTML = colorizeMermaid(graphDefinition);
+                parent.align = "center";
+                parent.style = "background: #eff1f3;"
+            }
+        }
+        //var insertSvg = function(svgCode, bindFunctions){
+        //  element.parentElement.parentElement.innerHTML = svgCode;
+        //};
+        //console.log(graphDefinition)
+        //var graph = mermaid.mermaidAPI.render('graphDiv', graphDefinition, insertSvg);
+    });
+</script>
+<script data-stage="prerender">
+    // Don't render immediately
+    mermaid.initialize({
+        startOnLoad: false
+    });
+    mermaid.mermaidAPI.initialize();
+
+    function cyrb53(str, seed = 0) {
+        let h1 = 0xdeadbeef ^ seed,
+            h2 = 0x41c6ce57 ^ seed;
+        for (let i = 0, ch; i < str.length; i++) {
+            ch = str.charCodeAt(i);
+            h1 = Math.imul(h1 ^ ch, 2654435761);
+            h2 = Math.imul(h2 ^ ch, 1597334677);
+        }
+        h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+        h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+        return 4294967296 * (2097151 & h2) + (h1 >>> 0);
+    };
+
+    let existed = {};
+
+    function calculateHash(str) {
+        let id = cyrb53(str);
+        if (typeof existed[id] === "number") {
+            id = existed[id] + 1;
+        }
+        existed[id] = id;
+        return id;
+    }
+
+    document.querySelectorAll('.mermaid').forEach(function(el) {
+        let html = el.textContent;
+        console.log("Rendering ", html)
+        let id = "graph-" + calculateHash(html);
+
+        mermaid.mermaidAPI.render(id, html, content => {
+            el.innerHTML = content;
+        });
+    });
+</script>
+
+
+<script data-stage="prerender">
+    renderMathInElement(document.body, {
+        delimiters: [{
+                left: "$$",
+                right: "$$",
+                display: true
+            },
+            //{left: "\\[", right: "\\]", display: true},
+            {
+                left: "$",
+                right: "$",
+                display: false
+            },
+            //{left: "\\(", right: "\\)", display: false}
+        ]
+    });
+</script>
+
+<script data-stage="prerender" src='{{ "js/fuhsi.js" | absURL }}'></script>
+<script data-stage="prerender">
+    fuhsi();
+</script>

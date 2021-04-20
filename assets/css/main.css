@@ -543,6 +543,15 @@ ul.post-list {
     border-bottom: .1em solid #000;
 }
 
+.post-content sup {
+    margin-left: 0.2em;
+}
+
+.post-content sup a {
+    border-bottom: none;
+    text-decoration: underline;
+}
+
 
 /* 
     Markdown Element Styles
@@ -581,7 +590,7 @@ blockquote {
     /* background: inherit; */
     /* color: #888; */
     /* font-size: 0.9em; */
-    color: rgba(0, 0, 0, 0.8);
+    color: #333;
     border-left: 3px solid #000;
     margin: 1rem 10px;
     margin-left: calc(-1em - 3px);
@@ -668,4 +677,41 @@ span.spoiler:not(:hover) {
 
 .post-content .footnote-backref {
     border-bottom: none;
+}
+
+
+/* Alert & SVG */
+
+.alert-header {
+    display: flex;
+    align-items: center;
+}
+
+.alert {
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid #000;
+}
+
+.alert blockquote {
+    margin-left: 0;
+}
+
+.svg-inline {
+    height: 1em;
+    width: 1em;
+    margin-right: .2em;
+}
+
+
+/* Mermaid */
+
+.mermaid {
+    font-variant-ligatures: none;
+    /* font-size: 12px; */
+    font-weight: 700;
+}
+
+.mermaid .label {
+    font-size: 75%;
 }
