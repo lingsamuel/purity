@@ -1,16 +1,18 @@
 {{ define "main" }} 
 <div class="container container-single" id="mainContainer" role="main">
-{{ partial "purity/header_single.html" . }}
-  <div class="row">
-    {{ $hasTOC := and (gt (len .TableOfContents) 32) (ne .Params.toc false) }}
-    <div>
+  <div class="container-single-main">
+  {{ partial "purity/header_single.html" . }}
+    <div class="row">
+      {{ $hasTOC := and (gt (len .TableOfContents) 32) (ne .Params.toc false) }}
       <article role="main" class="post-content">
         {{ .Content }}
-
         <div id="refContainer">
         </div>
       </article>
     </div>
+  </div>
+
+  <div class="row">
     <div class="post-pager">
       <ul class="pager">
         {{ if .PrevInSection }}

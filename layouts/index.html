@@ -4,6 +4,7 @@
 {{ partial "purity/header_index.html" . }}
 
   <div role="main" class="container">
+    {{ partial "dev/menu_list.html" . }}
     <div class="row">
       <div class="post-list">
         {{ $pag := .Paginate (where .Data.Pages "Type" "post") }}

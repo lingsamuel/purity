@@ -10,7 +10,7 @@
         </div>
 
         <div class="navbar-menu">
-            <ul class="">
+            <ul class="navbar-list">
                 {{ range .Site.Menus.main.ByWeight }}
                 <li>
                     <a title="{{ .Name }}" href="{{ .URL  | relLangURL }}">{{ .Name }}</a>

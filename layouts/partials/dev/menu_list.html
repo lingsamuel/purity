@@ -1,0 +1,39 @@
+{{ if (in .Site.BaseURL "localhost") }}
+
+<div class="row">
+    {{ range .Site.Menus.dev.ByWeight }}
+    <ul class="navlinks">
+      {{ if .HasChildren }}
+      <li class="navlinks-container">
+          <a class="navlinks-parent">{{ .Name }}</a>
+          <ul class="navlinks-children">
+          {{ range .Children }}
+              {{ if .HasChildren }}
+              <li class="navlinks-container level-3-menu">
+                  <a href="{{ .URL | relLangURL }}" class="navlinks-parent">{{ .Name }}</a>
+                  <ul class="navlinks-children right-menu">
+                  {{ range .Children.ByWeight }}
+                  <li>
+                    <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                  </li>
+                  {{ end }}
+                  </ul>
+              </li>
+              {{ else }}
+              <li>
+                <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+              </li>
+              {{ end }}
+          {{ end }}
+          </ul>
+      </li>
+      {{ else }}
+      <li>
+          <a title="{{ .Name }}" href="{{ .URL  | relLangURL }}">{{ .Name }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+</div>
+
+{{ end }}
