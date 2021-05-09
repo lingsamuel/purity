@@ -208,18 +208,12 @@ nav>.nav {
 .nav .navbar-menu ul {
     margin: 0;
     padding: 0;
-    margin-right: -20px;
+    margin-right: -15px;
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-
-@media only screen and (max-width:800px) {
-    .nav .navbar-menu ul {
-        flex-flow: row wrap;
-        justify-content: normal;
-    }
+    flex-flow: row wrap;
+    justify-content: normal;
 }
 
 .nav .navbar-menu li {
@@ -733,4 +727,16 @@ span.spoiler:not(:hover) {
 
 .mermaid .label {
     font-size: 75%;
+}
+
+/* LikeBtn */
+
+.lb-share-tt {
+    visibility: hidden;
+}
+
+.likebtn-container {
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: flex-end;
 }
