@@ -1,8 +1,8 @@
 name: purity update
 
 on:
-  watch:
-    types: started
+#   watch:
+#     types: started
   push:
     branches:
       - master
