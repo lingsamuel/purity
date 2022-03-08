@@ -5,7 +5,7 @@
 {{ end }}
 
 {{ if eq .Kind "section" }}
-    {{ $bookSection = .URL }}
+    {{ $bookSection = .Permalink }}
 {{ end }}
 
 {{ $rootSection := .Section }}

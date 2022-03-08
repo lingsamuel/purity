@@ -43,7 +43,13 @@
                       </a></span>
                     {{ else }}
                       <span><a class="capital" href="{{ .Permalink }}">
-                      {{ $fileName := path.Base .Page.Path }}
+                      {{ $path := "" }}
+                      {{ with .File }}
+                            {{ $path = .Path }}
+                      {{ else }}
+                            {{ $path = .Path }}
+                      {{ end }}
+                      {{ $fileName := path.Base $path }}
                       {{ $fileNameLen := len $fileName }}
                       {{ $extLen := len (path.Ext $fileName) }}
                       {{ $fileName = substr $fileName 0 (sub 0 $extLen) }}
