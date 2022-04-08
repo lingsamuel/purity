@@ -398,7 +398,7 @@ ul.post-list {
         top: 4rem;
     }
     #toc aside {
-        min-width: 20rem;
+        min-width: calc((100vw - 44rem)/2);
         max-height: calc(100vh - 10rem);
         overflow: auto;
         overflow-x: hidden;
