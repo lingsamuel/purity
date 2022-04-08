@@ -5,7 +5,7 @@
 {{ end }}
 
 {{ if eq .Kind "section" }}
-    {{ $bookSection = .Permalink }}
+    {{ $bookSection = .RelPermalink }}
 {{ end }}
 
 {{ $rootSection := .Section }}
